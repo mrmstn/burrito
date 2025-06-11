@@ -349,6 +349,26 @@ cd release
 tar czf my_custom_erts.tar.gz otp-A.B.C-OS-ARCH
 ```
 
+An example build script demonstrating how to use a custom `CUSTOM_ERTS_PATH`
+environment variable is available at
+`examples/cli_example/build_with_custom_erts.sh`. You can invoke it like so:
+
+```bash
+CUSTOM_ERTS_PATH=/path/to/my_custom_erts.tar.gz \
+examples/cli_example/build_with_custom_erts.sh
+```
+
+If you do not already have an ERTS archive for the ARMv7 target, the helper
+script `examples/cli_example/fetch_armv7_erts.sh` will download one from the
+Beam Machine mirror using the OTP version specified in `.tool-versions`:
+
+```bash
+examples/cli_example/fetch_armv7_erts.sh
+```
+
+Set `OTP_VERSION` if you need to override the detected version. The resulting
+`custom_erts_armv7.tar.gz` file can then be passed to `CUSTOM_ERTS_PATH`.
+
 ## Known Limitations and Issues
 
 #### Phx Tips

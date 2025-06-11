@@ -22,7 +22,8 @@ defmodule ExampleCliApp.MixProject do
             macos_m1: [os: :darwin, cpu: :aarch64],
             linux: [os: :linux, cpu: :x86_64],
             linux_aarch64: [os: :linux, cpu: :aarch64],
-            windows: [os: :windows, cpu: :x86_64]
+            windows: [os: :windows, cpu: :x86_64],
+            linux_armv7: [os: :linux, cpu: :arm, custom_erts: System.get_env("CUSTOM_ERTS_PATH")]
           ],
           extra_steps: [
             fetch: [pre: [ExampleCliApp.CustomBuildStep]],
